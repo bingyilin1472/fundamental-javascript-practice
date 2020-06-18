@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>produceRandomVar</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //整個網頁的點擊事件，只要點擊就會觸發
+        document.onclick = function () {
+            //Math lib中的random會產生0-1之間隨機變數，不含0與1
+            //alert(Math.random());
+
+            //目標希望1到100，若單純乘以100(則會不包含0、100)
+            //parseInt(num)，為向下取整(因此會不包含100，為0~99，含0、99)，因此最後得加1(變為1-100，含1、100)
+            alert(parseInt(Math.random()*100 + 1))
+
+        }
+    </script>
+</body>
+</html>
