@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operation</title>
+</head>
+<body>
+    <!-- 其實type text輸入的文字會在value屬性中，並且型態為str，計算要先進行轉換-->
+    <input type="text" id="text1">
+    <input type="text" id="text2">
+    <input type="button" value="加法" id="bt1">
+    <input type="button" value="減法" id="bt2">
+    <input type="button" value="乘法" id="bt3">
+    <input type="button" value="除法" id="bt4">
+    <input type="button" value="取餘" id="bt5">
+
+    <script type="text/javascript">
+        //獲得HTML元素
+        var iText1 = document.getElementById("text1")
+        var iText2 = document.getElementById("text2")
+        var cBt1 = document.getElementById("bt1")
+        var cBt2 = document.getElementById("bt2")
+        var cBt3 = document.getElementById("bt3")
+        var cBt4 = document.getElementById("bt4")
+        var cBt5 = document.getElementById("bt5")
+
+        //加法點擊事件
+        //加法比較特殊，字串時候會串接，因此需要強制轉型
+        //要對輸入進行轉換，否則會變成只有append的形式，利用Number物件，會轉為數字文件
+        cBt1.onclick = function () {
+            var num1 = Number(iText1.value)
+            var num2 = Number(iText2.value)
+
+            alert(num1 + num2)
+        }
+
+        //其他事件因為沒有兩個語意，其實會自動轉型，一般動態語言都相對彈性*、/、%、-都可以
+        //減法點擊事件
+        cBt2.onclick = function () {
+            alert(iText1.value - iText2.value)
+        }
+
+        //乘法點擊事件
+        //但我個人還是比較偏好，這種轉後再進行operation的方式，可讀性比較高，風險也較低(不會有coercion情況)
+        cBt3.onclick = function () {
+            var num1 = Number(iText1.value)
+            var num2 = Number(iText2.value)
+
+            alert(num1 * num2)
+        }
+
+        //除法點擊事件
+        cBt4.onclick = function () {
+            var num1 = Number(iText1.value)
+            var num2 = Number(iText2.value)
+
+            alert(num1 / num2)
+        }
+
+        //取餘點擊事件
+        cBt5.onclick = function () {
+            var num1 = Number(iText1.value)
+            var num2 = Number(iText2.value)
+
+            alert(num1 % num2)
+        }
+
+    </script>
+</body>
+</html>
