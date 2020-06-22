@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            /* 整體體的邊界跟內距，這種作法會使得元素緊貼邊緣(一般都會這樣，除非要使邊緣留白邊之類的) */
+            /* 先做這個，可以算是一個定位的手段，要移動從其中元素去改動 */
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            /* 從原本緊貼去移動外距 */
+            margin: 30px;
+        }
+        li{
+            list-style: none; /* 這個就是圓圈、菱形...條列式頭的形式，這邊是沒有none */
+            margin-right: 5px;
+            float: left; /* 浮動才可以變成同行 *//
+        }
+        a{
+            padding: 20px; /* 擴大會影響整個方格的大小 */
+            background: gray;/* 背景色 */
+            color: white; /* 字顏色 */
+            float: left; /* 內部也要是float，版型才會正常 */
+            text-decoration: none; /* 去掉連結底線 */
+        }
+        /* active按下樣式 */
+        a:
+    </style>
+</head>
+<body>
+<ul>
+    <ul>
+        <li><a href="#">娛樂</a></li>
+        <li><a href="#">財金</a></li>
+        <li><a href="#">體育</a></li>
+    </ul>
+</ul>
+</body>
+</html>
