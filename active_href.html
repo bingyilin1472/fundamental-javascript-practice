@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>active_href</title>
     <style type="text/css">
         *{
             /* 整體體的邊界跟內距，這種作法會使得元素緊貼邊緣(一般都會這樣，除非要使邊緣留白邊之類的) */
@@ -26,17 +26,49 @@
             float: left; /* 內部也要是float，版型才會正常 */
             text-decoration: none; /* 去掉連結底線 */
         }
-        /* active按下樣式 */
-        a:
+
+        /*
+            這是選擇器，表示選出class叫做active，且其中有a標籤的
+            因為class名稱是可以重複的，若希望精確就得這樣處理
+         */
+        .active a{
+            background: red;
+        }
     </style>
 </head>
 <body>
 <ul>
     <ul>
-        <li><a href="#">娛樂</a></li>
-        <li><a href="#">財金</a></li>
-        <li><a href="#">體育</a></li>
+        <li href="#" id="bt1"><a href="#">娛樂</a></li>
+        <li href="#" id="bt2"><a href="#">財金</a></li>
+        <li href="#" id="bt3"><a href="#">體育</a></li>
     </ul>
 </ul>
+<script type="text/javascript">
+    // 宣告變數要用var 沒有的話表示找已存
+    var bt1 = document.getElementById("bt1");
+    var bt2 = document.getElementById("bt2");
+    var bt3 = document.getElementById("bt3");
+
+    // 先承接一個任意bt初始化，但沒有設定屬性所以不會產生變化
+    var tempVar = bt1;
+
+    bt1.onclick = function () {
+        tempVar.className = '';
+        tempVar = bt1;
+        // 轉成已經寫好的樣式套上，這其實跟:active蠻類似，依據事件來動態對已存的元素做變化
+        tempVar.className = 'active';
+    }
+    bt2.onclick = function () {
+        tempVar.className = '';
+        tempVar = bt2;
+        tempVar.className = 'active';
+    }
+    bt3.onclick = function () {
+        tempVar.className = '';
+        tempVar = bt3;
+        tempVar.className = 'active';
+    }
+</script>
 </body>
 </html>
